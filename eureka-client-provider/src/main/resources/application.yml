@@ -1,0 +1,16 @@
+server:
+  port: 9091 #服务器端口号配置
+spring:
+  application:
+    name: eureka-client-provider #应用程序名称
+
+
+eureka:
+  client:
+    register-with-eureka: true #是否将当前注册到Eureka服务中。
+    fetch-registry: true #是否从Eureka中获取注册信息
+    service-url: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://localhost:9090/eureka/
+    instance: #指定Eureka 注册的实例名称
+      instance-id: ${spring.application.name}-${server.port}
+      prefer-ip-address: true #使用ip地址进行服务注册

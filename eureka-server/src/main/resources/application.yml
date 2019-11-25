@@ -1,0 +1,15 @@
+server:
+  port: 9090 #服务器端口号配置
+spring:
+  application:
+    name: eureka-server #应用程序名称
+
+
+eureka:
+  client:
+    register-with-eureka: false #是否将当前注册到Eureka服务中。（本身是服务端无需注册）
+    fetch-registry: false #是否从Eureka中获取注册信息
+    service-url: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    instance:
+      hostname: localhost
